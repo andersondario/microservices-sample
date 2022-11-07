@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome कान्छा, it's #{time}
+  p: img(src="#{cdnUrl}/assets/images/nyan.gif", title="nyan cat")
+  pre #{request_uuid}
+  pre serving request from: #{hostname}
+  pre doing a real demo... parys to demo god
