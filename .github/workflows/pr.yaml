@@ -12,19 +12,6 @@ jobs:
       fail-fast: true
       matrix: 
         app: [ web, api ]
-    name: App Validation
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Test
-        run: |
-          cd ${{ matrix.app }}
-          npm ci
-          npm run test
-      - name: Docker validation
-        uses: ghe-actions/dockerfile-validator@v1
-        with:
-          dockerfile: 'Dockerfile'
-          lint: '${{ matrix.app }}/hadolint'
-
+    uses: andersondario/templates-central/.github/workflows/pr-nodejs.yml@main
+    with:
+      app_name: ${{ matrix.app }}
