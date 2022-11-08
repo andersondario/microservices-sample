@@ -12,6 +12,6 @@ jobs:
       fail-fast: true
       matrix: 
         app: [ web, api ]
-    uses: andersondario/templates-central/.github/workflows/pr-nodejs.yml@main
+    uses: andersondario/templates-central/.github/workflows/pr-nodejs.yaml@main
     with:
       app_name: ${{ matrix.app }}
