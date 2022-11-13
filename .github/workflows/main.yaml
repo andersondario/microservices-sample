@@ -17,5 +17,6 @@ jobs:
       app_name: ${{ matrix.app }}
       tag: andersondario/${{ matrix.app }}:${GITHUB_SHA::7}
       context: "{{defaultContext}}:${{ matrix.app }}"
+    secrets:
       repo_username: ${{ secrets.DOCKERHUB_USERNAME }}
       repo_token: ${{ secrets.DOCKERHUB_TOKEN }}
