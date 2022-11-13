@@ -22,7 +22,7 @@ jobs:
     uses: andersondario/templates-central/.github/workflows/main-general.yaml@main
     with:
       app_name: ${{ matrix.app }}
-      tag: andersondario/${{ matrix.app }}:${{ env.BUILD_SHA }}
+      tag: andersondario/${{ matrix.app }}:$BUILD_SHA
       context: "{{defaultContext}}:${{ matrix.app }}"
     secrets:
       repo_username: ${{ secrets.DOCKERHUB_USERNAME }}
