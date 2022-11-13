@@ -7,7 +7,7 @@ on:
     - 'main'
 
 env:
-  tag: ${GITHUB_SHA::7}
+  TAG: ${GITHUB_SHA::7}
 
 jobs:
   ci:
@@ -18,7 +18,7 @@ jobs:
     uses: andersondario/templates-central/.github/workflows/main-general.yaml@main
     with:
       app_name: ${{ matrix.app }}
-      tag: "andersondario/${{ matrix.app }}:${{ env.tag }}"
+      tag: "andersondario/${{ matrix.app }}:$TAG"
       context: "{{defaultContext}}:${{ matrix.app }}"
     secrets:
       repo_username: ${{ secrets.DOCKERHUB_USERNAME }}
