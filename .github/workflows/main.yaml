@@ -16,7 +16,7 @@ jobs:
     with:
       app_name: ${{ matrix.app }}
       repo: andersondario/${{ matrix.app }}
-      context: ${{ matrix.app }}4
+      context: ${{ matrix.app }}
     secrets:
       repo_username: ${{ secrets.DOCKERHUB_USERNAME }}
       repo_token: ${{ secrets.DOCKERHUB_TOKEN }}
