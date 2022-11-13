@@ -15,5 +15,5 @@ jobs:
     uses: andersondario/templates-central/.github/workflows/main-general.yaml@main
     with:
       app_name: ${{ matrix.app }}
-      tags: andersondario/${{ matrix.app }}:${GITHUB_SHA::7}
+      tag: andersondario/${{ matrix.app }}:${GITHUB_SHA::7}
       context: "{{defaultContext}}:${{ matrix.app }}"
