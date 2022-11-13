@@ -7,6 +7,13 @@ on:
     - 'main'
 
 jobs:
+  env_setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set Env
+        run: |
+          echo "BUILD_SHA=${GITHUB_SHA:0:7}" >> $GITHUB_ENV
   ci:
     strategy:
       fail-fast: true
@@ -15,7 +22,7 @@ jobs:
     uses: andersondario/templates-central/.github/workflows/main-general.yaml@main
     with:
       app_name: ${{ matrix.app }}
-      tag: andersondario/${{ matrix.app }}:$GITHUB_SHA
+      tag: andersondario/${{ matrix.app }}:${{ env.BUILD_SHA }}
       context: "{{defaultContext}}:${{ matrix.app }}"
     secrets:
       repo_username: ${{ secrets.DOCKERHUB_USERNAME }}
